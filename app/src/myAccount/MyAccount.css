@@ -1,0 +1,151 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(126, 146, 104);
+    z-index: 1000;
+    width: 60%;
+    height: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+h2 {
+    text-align: center;
+    color: white;
+}
+
+.btns-container {
+    display: flex;
+    column-gap: 10%;
+    margin: 5%;
+}
+
+.my-pokemonsBtn {
+    transition: all 300ms;
+    background-color: rgba(134, 76, 108, 0.795);
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.my-pokemonsBtn button {
+    color: white;
+    font-weight: bolder;
+}
+
+.my-pokemonsBtn:hover {
+    transform: scale(1.15);
+}
+
+.logout {
+    transition: all 300ms;
+    background-color: rgb(136, 96, 212);
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.logout button {
+    color: white;
+}
+
+.logout:hover {
+    transform: scale(1.15);
+}
+
+.close-btn {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    font-size: large;
+    transition: all 300ms;
+}
+
+.close-btn:hover {
+    transform: scale(1.45);
+}
+
+.popup .info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams-info {
+    margin: 2%;
+    transition: all 300ms;
+}
+
+.teams-info summary {
+    font-size: smaller;
+    list-style: none;
+    cursor: pointer;
+}
+
+.teams-info:hover {
+    transform: scale(1.15);
+}
+
+.summary-img {
+    width: 15%;
+    margin: 5%;
+}
+
+.summary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    font-size: xx-small;
+    width: 100%;
+    padding: 0 5% 5% 5%;
+}
+
+.valor {
+    background-color: rgba(219, 152, 152, 0.774);
+    width: 70%;
+    border-radius: 20px;
+}
+
+.instinct {
+    background-color: rgba(146, 146, 120, 0.788);
+    width: 70%;
+    border-radius: 20px;
+}
+
+.mystic {
+    background-color: rgb(76, 76, 160);
+    width: 70%;
+    border-radius: 20px;
+}
+
+@media (min-width: 400px) {
+    .popup {
+        width: 30%;
+        padding: 1.5%;
+        height: 80%;
+    }
+    .popup h2 {
+        font-size: xx-large;
+        padding: 0;
+        margin: 0;
+    }
+    .text-container {
+        font-size: small;
+    }
+    .popup {
+        height: 80%;
+    }
+}

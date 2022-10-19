@@ -1,0 +1,40 @@
+.addCard {
+    border-radius: 10px;
+    border: 1px solid black;
+    display: inline-block;
+    padding: 0;
+    width: 95%;
+    margin: 3px;
+}
+
+.addContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.addContainer img {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    padding: 2.5% 0 2.5% 0%;
+    margin-left: 20%;
+    margin-top: 11%;
+}
+
+.addText {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    font-weight: lighter;
+    font-size: 10px;
+    text-align: center;
+    padding: 3px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+@media (min-width: 800px) {
+
+    .addContainer img {
+        margin-top: 0;
+    }
+}

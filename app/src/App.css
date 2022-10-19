@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 400px) {
+    .App {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .cardContainer {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    .head {
+        width: 100%;
+    }
+    .head-container {
+        margin: 0;
+        width: 50%;
+    }
+    #root {
+        display: flex;
+        justify-content: center;
+    }
+    .sortButton {
+        display: flex;
+        margin-left: 85%;
+    }
+    .btnLog {
+        margin-left: 10%;
+    }
+    .boxImage button {
+        margin-top: 70%;
+    }
+
+}
