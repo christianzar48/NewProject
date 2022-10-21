@@ -2,18 +2,18 @@ import "./header.css"
 import React, { useState, useEffect} from "react";
 import MyAccount from "../myAccount/MyAccount";
 
-function Header ({setPokemones, searchText, searchHandler, pokemones}) {
+function Header ({setFilteredPokemons, searchText, searchHandler, pokemones}) {
 
     const [sortPokes, setsortPokes] = useState("byID");
 
     function sortByName() {
-      const sortName = [...pokemones].sort((a, b) => (a.name > b.name ? 1 : -1));
-      setPokemones(sortName);
+      const sortName = pokemones.sort((a, b) => (a.name > b.name ? 1 : -1));
+      setFilteredPokemons(sortName);
       setsortPokes("byName");
     }
   
     function changeSort() {
-      setPokemones(pokemones);
+      setFilteredPokemons(pokemones);
       setsortPokes("byID");
     }
   
