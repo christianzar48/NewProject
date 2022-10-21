@@ -5,6 +5,8 @@ import Register from './register/register';
 import Homepage from './homepage/homepage';
 import Card from './card/Card';
 import AddForm from './add/form';
+import Loading from './loading/loading';
+import PageNotFound from './error/error';
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path='/homepage/:name/:id' element={<Card />} />
           <Route path="/signin" element={<Register />} />
           <Route path="/add-pokemon" element={<AddForm />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

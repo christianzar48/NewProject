@@ -57,7 +57,7 @@ function Main() {
 
     return (
     <div className="main">
-        <h1>Welcome to Pokemon!</h1>
+        <h1>Welcome to Pokémon!</h1>
         <div className="login-container">
         <form onSubmit={handleSubmit}>
             <h2>Log in</h2>

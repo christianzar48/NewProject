@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./Card.css";
 import ProgressBar from "@ramonak/react-progress-bar";
+import PageNotFound from "../error/error";
 
 function Card() {
 
-  const pokemones = []
+  const navigate = useNavigate();
+
+  // const pokemones = []
 
   const [cardPokemones, setCardPokemones] = useState([]);
   const [pokemonName, setPokemonName] = useState(useParams().name)
@@ -17,10 +20,11 @@ function Card() {
       headers: {"Content-Type" : "application/json"}
     }).then(res => res.json())
     .then(data => {
-      console.log(pokemonName)
-      console.log(data)
-      setCardPokemones(data.pokemon)
-      console.log(data.pokemons)
+      if(pokemonName) {
+        setCardPokemones(data.pokemon)
+      } else {
+        navigate("*")
+      }
     })
   }, [pokemonName])
 
@@ -53,11 +57,11 @@ function Card() {
                   <div style={{color:"white"}} className="idTag">#{pokemon?.id}</div>
             </div>
             <div className="boxImage">
-              {/* <Link to={`/pokemon/${prevName}`}>
+              <Link to={`/`}>
               <button className="arrowScroll2">
               <img src="/Imagenes/Frame.svg" />
               </button>
-              </Link> */}
+              </Link>
               <div className="card-image-container">
               <img
                 className="card-image"
@@ -65,11 +69,11 @@ function Card() {
                 </div>
 
 
-              {/* <Link to={`/pokemon/${nextName}`}>
+              <Link to={`/`}>
               <button className="arrowScroll1">
               <img className="arrowScroll" src="/Imagenes/Frame.svg" />
               </button>
-              </Link> */}
+              </Link>
               
             </div>
             <div className="info-container">

@@ -54,6 +54,15 @@ router.post('/login', async (req, res) =>{
     }
 });
 
-router.get('/')
+router.post('/add-to-trainer', async (req,res) => {
+    const user = await users.query("SELECT id FROM users WHERE name = $1", [req.body.name])
+    if (user) {
+         await users.query("INSERT INTO pokemones (trainer_id) VALUES ($1)", [user])
+         const userPokemon = await users.query("SELECT * FROM pokemons WHERE trainer_id=$1", [user])
+         res.json({ success: true, userPokemon:userPokemon, mensaje: "Pokemon añadido correctamente"})
+     } else {
+         res.json({ success: false, message: "No se ha añadido tu Pokémon" })
+     }
+})
 
 module.exports = router

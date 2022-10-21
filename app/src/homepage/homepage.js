@@ -3,10 +3,13 @@ import "./homepageCards.css"
 import { Link, useNavigate } from "react-router-dom"
 import React, { useState, useEffect } from "react";
 import Add from "../add/add";
+import Loading from "../loading/loading";
 
 function Homepage() {
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const [pokemones, setPokemones] = useState([]);
     const [searchText, setSearchText] = useState("");
@@ -15,6 +18,7 @@ function Homepage() {
     };
 
     function getPokemons() {
+      setIsLoading(true)
         fetch("http://localhost:3000/homepage", {
           method: "GET",
           headers: {"Content-Type" : "application/json",
@@ -24,6 +28,7 @@ function Homepage() {
         .then(data => {
           if (data.pokemons) {
             setPokemones(data.pokemons)
+            setIsLoading(false)
           console.log(data.pokemons)
           } else {
             localStorage.clear();
@@ -31,6 +36,7 @@ function Homepage() {
           }
         })
     }
+
 
     useEffect(() => {
         getPokemons();
@@ -44,9 +50,23 @@ function Homepage() {
         else {setPokemones(pokemones)};
     }, [searchText]);
 
+    const [byName, setByName] = useState([]);
+
+    function getPokemonsByName() {
+      fetch("http://localhost:3000/homepage/name", {
+        method: "GET",
+        headers : {"Content-type" : "application/json"}
+      }).then(res => res.json())
+      .then (data => {
+        setByName(data.pokemonsByName)
+        console.log(data.pokemonsByName)
+      })
+    }
+
     return(
         <div className="home-container">
             <Header
+                getPokemonsByName={getPokemonsByName}
                 searchText={searchText}
                 searchHandler={searchHandler}
                 setPokemones={setPokemones}

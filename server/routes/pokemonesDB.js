@@ -11,6 +11,11 @@ router.get('/', verifyToken, async(req, res) => {
     res.json({status: true, pokemons:pokemons.rows, mensaje: "Lista de todos los pokemones"})
 })
 
+router.get('/name', async (req, res) => {
+    const pokemonsByName = await obtainPokemons.query("SELECT * FROM pokemones ORDER BY name ASC")
+    res.json({status: true, pokemonsByName:pokemonsByName.rows, mensaje: "Lista de pokemones en orden alfabético"})
+})
+
 router.get('/:name', async(req,res) => {
     const name = req.params.name
     const pokemon = await obtainPokemons.query("SELECT * FROM pokemones WHERE name=$1", [name])
