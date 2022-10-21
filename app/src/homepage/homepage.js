@@ -3,6 +3,8 @@ import "./homepageCards.css";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Add from "../add/add";
+import Loading from "../loading/loading";
+
 
 function Homepage({ pokemones }) {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ function Homepage({ pokemones }) {
     }
   },[pokemones]);
 
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
@@ -34,7 +37,20 @@ function Homepage({ pokemones }) {
     else {setFilteredPokemons(pokemones)};
   }, [searchText]);
 
-  return (
+    const [byName, setByName] = useState([]);
+
+    function getPokemonsByName() {
+      fetch("http://localhost:3000/homepage/name", {
+        method: "GET",
+        headers : {"Content-type" : "application/json"}
+      }).then(res => res.json())
+      .then (data => {
+        setByName(data.pokemonsByName)
+        console.log(data.pokemonsByName)
+      })
+    }
+
+      return (
     <div className="home-container">
       <Header
         searchText={searchText}
@@ -49,6 +65,7 @@ function Homepage({ pokemones }) {
         {filteredPokemons.map((pokemon) => (
           <HomepageCards pokemon={pokemon} key={pokemon.name} />
         ))}
+
       </div>
     </div>
   );

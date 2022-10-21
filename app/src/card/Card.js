@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./Card.css";
 import ProgressBar from "@ramonak/react-progress-bar";
+import PageNotFound from "../error/error";
 
 function Card({ pokemones }) {
+
   const [cardPokemones, setCardPokemones] = useState([]);
   const [prevName, setPrevName] = useState("");
   const [nextName, setNextName] = useState("");
@@ -71,6 +73,15 @@ function Card({ pokemones }) {
             </div>
 
             <Link to={`/homepage/${nextName}`}>
+              </Link>
+              <div className="card-image-container">
+              <img
+                className="card-image"
+                src={`${pokemon?.img}`}/>
+                </div>
+
+
+              <Link to={`/`}>
               <button className="arrowScroll1">
                 <img className="arrowScroll" src="/Imagenes/Frame.svg" />
               </button>
@@ -83,6 +94,15 @@ function Card({ pokemones }) {
                 className="types"
               >
                 {pokemon?.type1}
+
+              </Link>
+              
+            </div>
+            <div className="info-container">
+              <div className="container">
+                <div style={{backgroundColor:`${pokemon?.color}`}} className="types">{pokemon?.type1}</div>
+                {pokemon?.type2 && (<div style={{backgroundColor: `${pokemon?.color2}`}} className="types">{pokemon?.type2}</div>)}
+
               </div>
               {pokemon?.type2 && (
                 <div

@@ -137,8 +137,27 @@ progress {
 }
 
 .boxImage {
-    margin-top: 5%;
     width: 100%;
+    display: flex;
+}
+
+.arrowScroll1 {
+    margin-top: 5rem;
+}
+
+.arrowScroll2 {
+    margin-top: 5rem;
+}
+
+.boxImage button {
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.boxImage .arrowScroll2 {
+    transform: scaleX(-1);
 }
 
 .card-image-container {
@@ -156,25 +175,13 @@ progress {
     align-items: center;
 }
 
-.boxImage button {
-    background: none;
-    border: none;
-    position: absolute;
-    bottom: auto;
-    margin-top: 30%;
-}
-.arrowScroll1 {
-    right: 15%;
-}
-
-.arrowScroll2 {
-    left: 15%;
-    transform: scaleX(-1);
-}
-
 @media (min-width: 400px) {
     
     .card-container {
         width: 50%;
+    }
+
+    .boxImage button {
+        margin-top: 12rem;
     }
 }

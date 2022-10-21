@@ -2,7 +2,7 @@ import "./header.css"
 import React, { useState, useEffect} from "react";
 import MyAccount from "../myAccount/MyAccount";
 
-function Header ({setFilteredPokemons, searchText, searchHandler, pokemones}) {
+function Header ({setFilteredPokemons, searchText, searchHandler, pokemones, getPokemonsByName}) {
 
     const [sortPokes, setsortPokes] = useState("byID");
 
@@ -28,7 +28,6 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones}) {
       }
     }
 
-
   const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -36,8 +35,7 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones}) {
             <div className="head-container">
                 <img className="pokeball-img" src="/Imagenes/Pokeball.png" />
                 <h1>Pokédex</h1>
-                <button onClick={() => {sortPokes == "byID" ? sortByName() : changeSort(); handleClick()}} className="sortButton">
-                    {buttonText}
+                <button onClick={getPokemonsByName} className="sortButton">
                     <img src="/Imagenes/Arrow.svg" />
                 </button>
                 <div className="btnLog">
@@ -50,9 +48,7 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones}) {
             <div className="searchBar">
                 <input
                 type="text"
-                placeholder="🔍︎ Search"
-                value={searchText}
-                onChange={searchHandler}></input>
+                placeholder="🔍︎ Search"></input>
             </div>
         </div>
     )
