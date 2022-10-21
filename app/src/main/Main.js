@@ -5,7 +5,7 @@ import axios from "axios"
 
 
 
-function Main() {
+function Main({setAuthToken}) {
 
     const navigate = useNavigate()
 
@@ -40,7 +40,7 @@ function Main() {
                     alert('Failed Login!')
                 } else {
                     localStorage.setItem('token', res.data.token);
-                    console.log(localStorage.getItem('token'), res.data.token)
+                    setAuthToken(res.data.token)
                     navigate('/homepage')
                 }
             })
