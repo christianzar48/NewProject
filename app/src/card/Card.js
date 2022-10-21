@@ -58,10 +58,11 @@ function Card() {
               <img src="/Imagenes/Frame.svg" />
               </button>
               </Link> */}
-
+              <div className="card-image-container">
               <img
                 className="card-image"
-                src={`/Imagenes/${pokemon?.name}.png`}/>
+                src={`${pokemon?.img}`}/>
+                </div>
 
 
               {/* <Link to={`/pokemon/${nextName}`}>
@@ -99,7 +100,7 @@ function Card() {
                 <div className="moves-container">
                     <div className="moves">
                         {pokemon?.move1}
-                        {pokemon?.move2 && (<div>{pokemon?.moves2}</div>)}
+                        {pokemon?.move2 && (<div>{pokemon?.move2}</div>)}
                     </div>
                   <div className="dataText">Moves</div>
                 </div>

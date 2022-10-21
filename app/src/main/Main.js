@@ -50,7 +50,6 @@ function Main() {
     
     useEffect(() =>{
         if(localStorage.getItem('token')) {
-            console.log('hola')
             navigate('/homepage')
         }
     }, [])

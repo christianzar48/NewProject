@@ -51,14 +51,8 @@ function Register() {
                         <input type="email" id="email" placeholder="Enter email" name="email" onChange={handleInputChange} value={data.email}></input>
                         <label for="password">Password</label>
                         <input type="password" id="password" placeholder="Create new password" name="password" onChange={handleInputChange} value={data.password}></input>
-                        {/* <div className="choose-teams">
-                            <label for="choose-team">Choose your team!</label>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                        </div> */}
                         <div className="btn">
-                            <button type="submit">Sing in</button>
+                            <button type="submit">Sign in</button>
                         </div>
                     </div>
                 </form>

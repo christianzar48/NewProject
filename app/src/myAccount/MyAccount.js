@@ -1,7 +1,15 @@
 import { React } from 'react';
+import { useNavigate } from "react-router-dom";
 import "./MyAccount.css";
 
 export default function MyAccount({ open, onClose }) {
+
+    const navigate = useNavigate();
+
+    const logOut = (e) => {
+        localStorage.clear();
+        navigate('/')
+    }
 
     if(!open) return null
 
@@ -17,7 +25,7 @@ export default function MyAccount({ open, onClose }) {
                         <button>My Pokemons</button>
                     </div>
                     <div className='logout'>
-                        <button>Log out</button>
+                        <button onClick={logOut}>Log out</button>
                     </div>
                 </div>
 

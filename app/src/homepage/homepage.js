@@ -79,7 +79,7 @@ const HomepageCards = ({pokemon}) => {
         </span>
         <img
           className="pokemon-image"
-          src={`/Imagenes/${pokemon.name}.png`}
+          src={`${pokemon.img}`}
         />
         <div
           style={{ backgroundColor: `${pokemon.color}` }}

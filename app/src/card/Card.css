@@ -137,9 +137,18 @@ progress {
 }
 
 .boxImage {
+    margin-top: 5%;
+    width: 100%;
+}
+
+.card-image-container {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    width: 100%;
+}
+
+.boxImage .card-image {
+    width: 60%;
 }
 
 .file {
@@ -161,4 +170,11 @@ progress {
 .arrowScroll2 {
     left: 15%;
     transform: scaleX(-1);
+}
+
+@media (min-width: 400px) {
+    
+    .card-container {
+        width: 50%;
+    }
 }
