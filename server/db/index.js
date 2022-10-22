@@ -4,7 +4,7 @@ const obtainPokemons = new Pool ({
         user: "postgres",
         host: "localhost",
         database: "postgres",
-        password: "Milocho91",
+        password: "AllCaste2.",
         port: 5432
 });
 

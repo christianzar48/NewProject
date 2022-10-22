@@ -1,8 +1,8 @@
 import "./header.css"
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
 import MyAccount from "../myAccount/MyAccount";
 
-function Header ({setFilteredPokemons, searchText, searchHandler, pokemones, getPokemonsByName}) {
+function Header ({setFilteredPokemons, searchText, searchHandler, pokemones}) {
 
     const [sortPokes, setsortPokes] = useState("byID");
 
@@ -13,7 +13,8 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones, get
     }
   
     function changeSort() {
-      setFilteredPokemons(pokemones);
+      const sortID = pokemones.sort((a, b) => (a.id > b.id ? 1 : -1))
+      setFilteredPokemons(sortID);
       setsortPokes("byID");
     }
   
@@ -21,7 +22,7 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones, get
     const [buttonText, setButtonText] = useState(initialText);
   
     function handleClick() {
-      if (buttonText == "A") {
+      if (buttonText === "A") {
         setButtonText("#");
       } else {
         setButtonText("A");
@@ -35,8 +36,9 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones, get
             <div className="head-container">
                 <img className="pokeball-img" src="/Imagenes/Pokeball.png" />
                 <h1>Pokédex</h1>
-                <button onClick={getPokemonsByName} className="sortButton">
+                <button onClick={() => {sortPokes === "byID" ? sortByName() : changeSort(); handleClick()}} className="sortButton">
                     <img src="/Imagenes/Arrow.svg" />
+                    {buttonText}
                 </button>
                 <div className="btnLog">
                     <button onClick={() => setIsOpen(true)} className="logIn">GO!</button>
@@ -48,7 +50,9 @@ function Header ({setFilteredPokemons, searchText, searchHandler, pokemones, get
             <div className="searchBar">
                 <input
                 type="text"
-                placeholder="🔍︎ Search"></input>
+                placeholder="🔍︎ Search"
+                value={searchText}
+                onChange={searchHandler}></input>
             </div>
         </div>
     )

@@ -10,4 +10,5 @@
     background-size: cover;
     background-attachment: fixed;
     padding: 5%;
+    display: flex;
   }

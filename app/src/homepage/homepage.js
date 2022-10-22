@@ -14,7 +14,11 @@ function Homepage({ pokemones }) {
   const searchHandler = (e) => {
     setSearchText(e.target.value.toLowerCase());
   };
-  console.log(filteredPokemons)
+
+  const changePokemons = (newPokemones) => {
+    setFilteredPokemons([...newPokemones])
+  }
+
   useEffect(()=>{
     if (filteredPokemons !== pokemones){
       setFilteredPokemons(pokemones)
@@ -27,6 +31,7 @@ function Homepage({ pokemones }) {
       navigate("/");
     }
   },[]);
+  
   useEffect(() => {
     if (searchText) {
       const pokemonFiltrado = pokemones.filter(
@@ -36,26 +41,13 @@ function Homepage({ pokemones }) {
     }
     else {setFilteredPokemons(pokemones)};
   }, [searchText]);
-
-    const [byName, setByName] = useState([]);
-
-    function getPokemonsByName() {
-      fetch("http://localhost:3000/homepage/name", {
-        method: "GET",
-        headers : {"Content-type" : "application/json"}
-      }).then(res => res.json())
-      .then (data => {
-        setByName(data.pokemonsByName)
-        console.log(data.pokemonsByName)
-      })
-    }
-
+  
       return (
     <div className="home-container">
       <Header
         searchText={searchText}
         searchHandler={searchHandler}
-        setFilteredPokemons={setFilteredPokemons}
+        setFilteredPokemons={changePokemons}
         pokemones={pokemones}
       />
       <div className="flex-container">

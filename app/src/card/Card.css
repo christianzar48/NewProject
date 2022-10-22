@@ -142,11 +142,11 @@ progress {
 }
 
 .arrowScroll1 {
-    margin-top: 5rem;
+    margin-top: 30%;
 }
 
 .arrowScroll2 {
-    margin-top: 5rem;
+    margin-top: 30%;
 }
 
 .boxImage button {
@@ -181,7 +181,15 @@ progress {
         width: 50%;
     }
 
-    .boxImage button {
-        margin-top: 12rem;
+    .boxImage .card-image {
+        width: 50%;
+    }
+
+    .arrowScroll2 {
+        margin-top: 25%;
+    }
+    
+    .arrowScroll1 {
+        margin-top: 25%;
     }
 }

@@ -6,15 +6,19 @@ import Homepage from "./homepage/homepage";
 import Card from "./card/Card";
 import AddForm from "./add/form";
 import React, { useEffect, useState } from "react";
-import PageNotFound from "./error/404";
+import PageNotFound from "./error/error";
+import Loading from "./loading/loading";
 
 
 function App() {
+
   const [pokemones, setPokemones] = useState([]);
   const [authToken, setAuthToken] = useState(localStorage.getItem('token'));
+  const [isLoading, setIsLoading] = useState(false);
 
   function getPokemons() {
     if (authToken) {
+      setIsLoading(true)
       fetch("http://localhost:3000/homepage", {
         method: "GET",
         headers: {
@@ -26,7 +30,7 @@ function App() {
         .then((data) => {
           if (data.pokemons) {
             setPokemones(data.pokemons);
-            console.log(data.pokemons);
+            setIsLoading(false);
           } else {
             localStorage.clear();
           }
@@ -39,6 +43,7 @@ function App() {
 
   return (
     <div className="App">
+      {isLoading ? <Loading /> : getPokemons}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main setAuthToken={setAuthToken}/>} />

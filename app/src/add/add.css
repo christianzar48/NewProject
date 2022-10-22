@@ -14,12 +14,11 @@
 
 .addContainer img {
     width: 60%;
-    height: 70px;
     display: flex;
     justify-content: center;
     padding: 2.5% 0 2.5% 0%;
     margin-left: 20%;
-    margin-top: 11%;
+    margin-top: 14.5%;
 }
 
 .addText {
@@ -37,6 +36,6 @@
 
     .addContainer img {
         margin-top: 0;
-        height: 120px;
+        height: 150px;
     }
 }

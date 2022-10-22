@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import "./Card.css";
 import ProgressBar from "@ramonak/react-progress-bar";
 import PageNotFound from "../error/error";
+import Loading from "../loading/loading";
 
 function Card({ pokemones }) {
 
@@ -11,6 +12,8 @@ function Card({ pokemones }) {
   const [nextName, setNextName] = useState("");
   const { name } = useParams();
   const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false);
+  
   useEffect(() => {
     fetch(`http://localhost:3000/homepage/${name}`, {
       method: "GET",
@@ -28,7 +31,7 @@ function Card({ pokemones }) {
   }, [name]);
 
   let pokemon = cardPokemones ? cardPokemones[0] : null;
-  console.log(cardPokemones);
+  
   useEffect(() => {
     if (pokemon) {
       const currentIndex = pokemones.findIndex((pokemones) => {
@@ -63,56 +66,29 @@ function Card({ pokemones }) {
             </div>
           </div>
           <div className="boxImage">
+            <div className="arrowScroll2">
             <Link to={`/homepage/${prevName}`}>
-              <button className="arrowScroll2">
+              <button>
                 <img src="/Imagenes/Frame.svg" />
               </button>
             </Link>
-            <div className="card-image-container">
-              <img className="card-image" src={`${pokemon?.img}`} />
             </div>
-
-            <Link to={`/homepage/${nextName}`}>
-              </Link>
               <div className="card-image-container">
-              <img
-                className="card-image"
-                src={`${pokemon?.img}`}/>
-                </div>
-
-
-              <Link to={`/`}>
-              <button className="arrowScroll1">
-                <img className="arrowScroll" src="/Imagenes/Frame.svg" />
-              </button>
-            </Link>
+                <img className="card-image" src={`${pokemon?.img}`} />
+              </div>
+              <div className="arrowScroll1">
+              <Link to={`/homepage/${nextName}`}>
+                <button className="arrowScroll1">
+                  <img className="arrowScroll" src="/Imagenes/Frame.svg" />
+                </button>
+              </Link>
+              </div>
           </div>
           <div className="info-container">
             <div className="container">
-              <div
-                style={{ backgroundColor: `${pokemon?.color}` }}
-                className="types"
-              >
-                {pokemon?.type1}
-
-              </Link>
-              
-            </div>
-            <div className="info-container">
-              <div className="container">
-                <div style={{backgroundColor:`${pokemon?.color}`}} className="types">{pokemon?.type1}</div>
+              <div style={{backgroundColor:`${pokemon?.color}`}} className="types">{pokemon?.type1}</div>
                 {pokemon?.type2 && (<div style={{backgroundColor: `${pokemon?.color2}`}} className="types">{pokemon?.type2}</div>)}
-
               </div>
-              {pokemon?.type2 && (
-                <div
-                  style={{ backgroundColor: `${pokemon?.color2}` }}
-                  className="types"
-                >
-                  {pokemon?.type2}
-                </div>
-              )}
-            </div>
 
             <h3 style={{ color: `${pokemon?.color}` }}>About</h3>
 

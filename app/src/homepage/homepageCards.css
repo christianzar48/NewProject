@@ -36,7 +36,7 @@
 
 .pokemon-image {
     width: 60%;
-    height: 70px;
+    height: 75px;
     display: flex;
     margin-left: 20%;
     padding: 2.5% 0 2.5% 0%;
@@ -52,10 +52,10 @@
 @media (min-width: 400px) {
     
     .home-container {
-        width: 50%;
+        width: 60%;
     }
 
     .pokemon-image {
-        height: 120px;
+        height: 150px;
     }
 }
