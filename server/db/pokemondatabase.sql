@@ -2,7 +2,7 @@
 
 CREATE TABLE pokemones (name varchar, id varchar, type1 varchar, type2 varchar, weight varchar, height varchar, move1 varchar, move2 varchar, info varchar,hp varchar,atk varchar,def varchar,satk varchar,sdef varchar,spd varchar,color varchar,color2 varchar,color3 varchar, trainer_id int4)
 
--- Insertar datos en la tabla
+-- Insertar datos en la tabla (Ignorar si se quiere iniciar la Pokédex sin ningún Pokémon registrado)
 
 INSERT INTO pokemones
 (name, id, type1, type2, weight, height, move1, move2, info, hp, atk, def, satk, sdef, spd, color, color2, color3, img, trainer_id)
